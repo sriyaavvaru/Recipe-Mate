@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #fffaf2;
+  --ink: #2b251f;
+  --muted: #746a60;
+  --pink: #ff7c9e;
+  --pink-soft: #ffe7ee;
+  --peach: #fff0e7;
+  --yellow: #fff4b8;
+  --green: #dff6e8;
+  --card: rgba(255,255,255,0.82);
+  --line: rgba(80,60,40,0.10);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 8% 4%, rgba(255, 205, 220, 0.72), transparent 28%),
+    radial-gradient(circle at 92% 10%, rgba(255, 237, 186, 0.72), transparent 26%),
+    linear-gradient(180deg, #fffaf2 0%, #fff7f2 55%, #fffdf8 100%);
+  min-height: 100vh;
+  font-family: ui-rounded, "SF Pro Rounded", "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button, input, textarea, select { font: inherit; }
+
+::selection { background: #ffd5e0; }
+
+.shell { max-width: 1180px; margin: 0 auto; padding: 28px 20px 64px; }
+
+.glass {
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 50px rgba(92, 65, 42, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.dashed {
+  border: 2px dashed rgba(255,124,158,0.34);
+}
+
+.soft-grid {
+  background-image:
+    linear-gradient(rgba(255,124,158,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,124,158,0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: 3px solid rgba(255,124,158,0.15);
+  border-color: rgba(255,124,158,0.55);
+}
+
+.recipe-step {
+  position: relative;
+}
+
+.recipe-step::before {
+  content: "";
+  position: absolute;
+  left: -13px;
+  top: 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #ff93ad;
+  box-shadow: 0 0 0 5px #fff0f4;
+}
+
+.spin {
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.floaty {
+  animation: floaty 4s ease-in-out infinite;
+}
+@keyframes floaty {
+  0%,100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-7px) rotate(2deg); }
+}
